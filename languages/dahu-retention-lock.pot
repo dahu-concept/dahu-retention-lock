@@ -1,0 +1,325 @@
+# Copyright (C) 2026 Hugo Vial-Jaime
+# This file is distributed under the MIT licence.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dahu Retention Lock\n"
+"Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-10-23 11:19+0000\n"
+"X-Domain: dahu-retention-lock\n"
+
+#: dahu-retention-lock.php:225
+msgid "A blocked deletion says who tried and why it was refused."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:434
+msgid "A cleanup run is in progress, or was left that way."
+msgstr ""
+
+#: dahu-retention-lock.php:220
+msgid "A rule, not a habit"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:441
+msgid "Action Scheduler is not available"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:214
+msgid "All six delays below are read as empty and the daily cleanup is unhooked. You can type a value: it will not be saved, and the attempt will be recorded."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:435
+msgid "An in-progress action cannot be cancelled; it will finish or be cleaned up by Action Scheduler. It finds nothing to delete while the lock is on."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-lock.php:71
+msgid "Anonymise completed orders"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-lock.php:70
+msgid "Anonymise refunded orders"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:418
+msgid "Anything still attached to the cleanup hook:"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-lock.php:69
+msgid "Bin cancelled orders"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-lock.php:68
+msgid "Bin failed orders"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-lock.php:67
+msgid "Bin orders awaiting payment"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:473
+msgid "By"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:499
+msgid "Clear the record"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:383
+msgid "Clear the stored delays"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:264
+msgid "Clear them first"
+msgstr ""
+
+#: dahu-retention-lock.php:95
+msgid "Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgstr ""
+
+#. translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
+#: includes/class-dahu-retention-lock-lock.php:354
+msgid "Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
+msgstr ""
+
+#. translators: %d: how many delays are stored. */
+#: includes/class-dahu-retention-lock-settings.php:259
+msgid "Deactivating this plugin puts %d stored WooCommerce retention delay back into force, and your order history starts being anonymised again."
+msgid_plural "Deactivating this plugin puts %d stored WooCommerce retention delays back into force, and your order history starts being anonymised again."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-dahu-retention-lock-lock.php:72
+msgid "Delete inactive customer accounts"
+msgstr ""
+
+#: dahu-retention-lock.php:188
+msgid "Done"
+msgstr ""
+
+#: dahu-retention-lock.php:205
+msgid "It is off until you decide. Nothing is locked before then."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:313
+msgid "Lock WooCommerce's personal data retention"
+msgstr ""
+
+#: dahu-retention-lock.php:187
+msgid "Next"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:463
+msgid "Nothing refused yet; every deletion the lock turns away is listed here."
+msgstr ""
+
+#: dahu-retention-lock.php:228
+msgid "Nothing silent"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:213
+msgid "Personal data retention: these fields are locked."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:340
+msgid "Read straight from the database, past the lock. This is what is stored, not what WooCommerce currently sees."
+msgstr ""
+
+#: dahu-retention-lock.php:224
+msgid "Refusals are visible"
+msgstr ""
+
+#. translators: 1: the setting's name, 2: the delay that was refused. */
+#: includes/class-dahu-retention-lock-settings.php:484
+msgid "Refused: %1$s (%2$s)"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:385
+msgid "Removes the delays above from WooCommerce's settings. Nothing else is touched, and no order data is changed."
+msgstr ""
+
+#: dahu-retention-lock.php:167 includes/class-dahu-retention-lock-settings.php:90 includes/class-dahu-retention-lock-settings.php:91 includes/class-dahu-retention-lock-settings.php:287
+msgid "Retention lock"
+msgstr ""
+
+#: dahu-retention-lock.php:221
+msgid "Say how long, and the rule holds for every path."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:439
+msgid "Scheduled through Action Scheduler:"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:449
+msgid "Scheduled through WP-Cron:"
+msgstr ""
+
+#: dahu-retention-lock.php:122
+msgid "Settings"
+msgstr ""
+
+#: dahu-retention-lock.php:189
+msgid "Skip"
+msgstr ""
+
+#: dahu-retention-lock.php:168 includes/class-dahu-retention-lock-settings.php:288
+msgid "Stops anything deleting the records you are required to keep."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:347
+msgid "Stored delay"
+msgstr ""
+
+#: dahu-retention-lock.php:204
+msgid "Switch the lock on"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:321
+msgid "Switching the lock off, or deactivating this plugin, would put %d stored delay back into force on the next request."
+msgid_plural "Switching the lock off, or deactivating this plugin, would put %d stored delays back into force on the next request."
+msgstr[0] ""
+msgstr[1] ""
+
+#: dahu-retention-lock.php:214 includes/class-dahu-retention-lock-settings.php:414
+msgid "The daily cleanup"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:309
+msgid "The lock"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:396
+msgid "The lock is off, so none of the six settings above is locked either."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:465
+msgid "The lock is off, so nothing is being refused."
+msgstr ""
+
+#. translators: %s: a link to this plugin's settings screen. */
+#: includes/class-dahu-retention-lock-settings.php:218
+msgid "The lock is there because a delay typed here goes on anonymising your history <em>continuously and without warning</em>. To lift it, switch it off in %s — once you have written the retention policy that replaces it."
+msgstr ""
+
+#: dahu-retention-lock.php:229
+msgid "The lock never pretends a deletion happened."
+msgstr ""
+
+#: dahu-retention-lock.php:210
+msgid "The six delays WooCommerce would act on, read past the lock."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:394
+msgid "The six settings above are still locked. What cannot be checked is whether this version of WooCommerce has added a seventh."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:325
+msgid "They are listed below. Use the button under the table to clear them — while the lock is on, WooCommerce's own field shows blank and a save there cannot remove them."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:407
+msgid "They are not locked. Please report them so the list can be updated — a lock that quietly misses a field is worse than no lock, because nobody looks again."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:404
+msgid "This version of WooCommerce has retention settings this plugin does not know about."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:472
+msgid "What"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:348
+msgid "What WooCommerce reads"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:337
+msgid "What WooCommerce would do"
+msgstr ""
+
+#: dahu-retention-lock.php:209
+msgid "What is stored"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:346
+msgid "What it would delete"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:459
+msgid "What the lock refused"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:471
+msgid "When"
+msgstr ""
+
+#: dahu-retention-lock.php:215
+msgid "Whether the job that deletes is still scheduled."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:219
+msgid "WooCommerce → Retention lock"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:392
+msgid "WooCommerce's own code could not be read, so this plugin cannot tell you whether it is still locking everything."
+msgstr ""
+
+#: dahu-retention-lock.php:191
+msgid "You are not allowed to view this page."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:273
+msgid "You do not have permission to change these settings."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:146 includes/class-dahu-retention-lock-settings.php:174
+msgid "You do not have permission to do that."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:429 includes/class-dahu-retention-lock-settings.php:444 includes/class-dahu-retention-lock-settings.php:451
+msgid "no"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:360
+msgid "none"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:369
+msgid "nothing"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:367
+msgid "nothing — locked"
+msgstr ""
+
+#: dahu-retention-lock.php:190
+msgid "of"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-log.php:98
+msgid "the site"
+msgstr ""
+
+#. translators: %d: a numeric user id. */
+#: includes/class-dahu-retention-lock-log.php:105
+msgid "user #%d"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:420 includes/class-dahu-retention-lock-settings.php:444 includes/class-dahu-retention-lock-settings.php:451
+msgid "yes"
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:422
+msgid "— WooCommerce's own, which this plugin knows how to remove."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:426
+msgid "— but not WooCommerce's own, and the lock is off. That callback is not this plugin's to remove."
+msgstr ""
+
+#: includes/class-dahu-retention-lock-settings.php:424
+msgid "— but not WooCommerce's own. Something else is on that hook; the six settings are still locked, and that callback is not this plugin's to remove."
+msgstr ""
+
