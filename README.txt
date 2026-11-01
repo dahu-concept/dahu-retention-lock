@@ -1,6 +1,6 @@
 === Dahu Retention Lock ===
 Contributors: dahuconcept
-Tags: woocommerce, orders, privacy, retention, gdpr
+Tags: data retention, order history, personal data, privacy, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
