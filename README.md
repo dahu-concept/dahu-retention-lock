@@ -1,4 +1,4 @@
-# Dahu Retention Lock
+# Ubac Retention Lock
 
 Stops WooCommerce deleting your order history on a timer.
 
@@ -69,7 +69,7 @@ WooCommerce schedules its cleanup through **Action Scheduler** on modern version
 Unhooking the callback is what stops the work; unscheduling is tidiness and it writes to the database, so it can be turned off:
 
 ```php
-add_filter( 'dahu_retention_lock_unschedule', '__return_false' );
+add_filter( 'ubac_retention_unschedule', '__return_false' );
 ```
 
 The callback is removed by name, not with `remove_all_actions()`. Everything on that hook is personal-data cleanup by definition, so the blunt version would probably be harmless — "probably harmless" is not a reason to take someone else's callback off a hook they own.

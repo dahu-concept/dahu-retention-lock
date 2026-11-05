@@ -13,16 +13,16 @@
  * Requires PHP:      7.4
  * WC requires at least: 7.0
  *
- * @package DahuRetentionLock
+ * @package UbacRetention
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAHU_RETENTION_LOCK_VERSION', '1.2.1' );
-define( 'DAHU_RETENTION_LOCK_FILE', __FILE__ );
-define( 'DAHU_RETENTION_LOCK_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DAHU_RETENTION_LOCK_URL', plugin_dir_url( __FILE__ ) );
-define( 'DAHU_RETENTION_LOCK_PAGE', 'dahu-retention-lock' );
+define( 'UBAC_RETENTION_VERSION', '1.2.1' );
+define( 'UBAC_RETENTION_FILE', __FILE__ );
+define( 'UBAC_RETENTION_PATH', plugin_dir_path( __FILE__ ) );
+define( 'UBAC_RETENTION_URL', plugin_dir_url( __FILE__ ) );
+define( 'UBAC_RETENTION_PAGE', 'ubac-retention' );
 
 /* -------------------------------------------------------------------------
  * Translations
@@ -40,11 +40,11 @@ define( 'DAHU_RETENTION_LOCK_PAGE', 'dahu-retention-lock' );
 
 spl_autoload_register(
 	static function ( $class ) {
-		if ( 0 !== strpos( $class, 'Dahu_Retention_Lock_' ) ) {
+		if ( 0 !== strpos( $class, 'Ubac_Retention_' ) ) {
 			return;
 		}
 
-		$file = DAHU_RETENTION_LOCK_PATH . 'includes/class-' . strtolower( str_replace( '_', '-', $class ) ) . '.php';
+		$file = UBAC_RETENTION_PATH . 'includes/class-' . strtolower( str_replace( '_', '-', $class ) ) . '.php';
 
 		if ( is_readable( $file ) ) {
 			require_once $file;
@@ -60,7 +60,7 @@ add_action(
 	'before_woocommerce_init',
 	static function () {
 		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
-			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', DAHU_RETENTION_LOCK_FILE, true );
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', UBAC_RETENTION_FILE, true );
 		}
 	}
 );
@@ -75,7 +75,7 @@ add_action(
  * The settings screen waits for `is_admin()`, as usual.
  * ---------------------------------------------------------------------- */
 
-add_action( 'plugins_loaded', array( 'Dahu_Retention_Lock_Lock', 'init' ), 5 );
+add_action( 'plugins_loaded', array( 'Ubac_Retention_Lock', 'init' ), 5 );
 
 add_action(
 	'plugins_loaded',
@@ -90,7 +90,7 @@ add_action(
 
 					printf(
 						'<div class="notice notice-warning"><p>%s</p></div>',
-						esc_html__( 'Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-retention' )
+						esc_html__( 'Ubac Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-retention' )
 					);
 				}
 			);
@@ -99,7 +99,7 @@ add_action(
 		}
 
 		if ( is_admin() ) {
-			Dahu_Retention_Lock_Settings::init();
+			Ubac_Retention_Settings::init();
 		}
 	},
 	20
@@ -116,7 +116,7 @@ add_filter(
 			$links,
 			sprintf(
 				'<a href="%s">%s</a>',
-				esc_url( admin_url( 'admin.php?page=' . DAHU_RETENTION_LOCK_PAGE ) ),
+				esc_url( admin_url( 'admin.php?page=' . UBAC_RETENTION_PAGE ) ),
 				esc_html__( 'Settings', 'ubac-retention' )
 			)
 		);
@@ -141,7 +141,7 @@ add_filter(
  * Registered here rather than inside the admin include, because the
  * activation flag has to be set whatever else is loaded.
  */
-require_once DAHU_RETENTION_LOCK_PATH . 'includes/dahu-welcome.php';
+require_once UBAC_RETENTION_PATH . 'includes/ubac-welcome.php';
 
 /*
  * The flag, not a redirect: an activation hook that redirects breaks bulk
@@ -152,21 +152,21 @@ require_once DAHU_RETENTION_LOCK_PATH . 'includes/dahu-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Dahu_Welcome::mark_activated( 'dahu-retention-lock' );
+		Ubac_Welcome::mark_activated( 'ubac-retention' );
 	}
 );
 
 add_action(
 	'init',
 	static function () {
-		Dahu_Welcome::register(
+		Ubac_Welcome::register(
 			array(
-				'slug'       => 'dahu-retention-lock',
+				'slug'       => 'ubac-retention',
 				'name'       => __( 'Retention lock', 'ubac-retention' ),
 				'tagline'    => __( 'Stops anything deleting the records you are required to keep.', 'ubac-retention' ),
-				'file'       => DAHU_RETENTION_LOCK_FILE,
-				'version'    => DAHU_RETENTION_LOCK_VERSION,
-				'textdomain' => 'dahu-retention-lock',
+				'file'       => UBAC_RETENTION_FILE,
+				'version'    => UBAC_RETENTION_VERSION,
+				'textdomain' => 'ubac-retention',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
@@ -195,20 +195,20 @@ add_action(
 				 * table, the cleanup list. The refusal record is left out on
 				 * purpose -- its table only exists once something was refused.
 				 */
-				'tour_screen' => 'woocommerce_page_dahu-retention-lock',
+				'tour_screen' => 'woocommerce_page_ubac-retention',
 				'tour'        => array(
 					array(
-						'selector' => 'input[name="dahu_retention_lock_on"]',
+						'selector' => 'input[name="ubac_retention_on"]',
 						'title'    => __( 'Switch the lock on', 'ubac-retention' ),
 						'text'     => __( 'It is off until you decide. Nothing is locked before then.', 'ubac-retention' ),
 					),
 					array(
-						'selector' => '.dahu-retention-lock__table',
+						'selector' => '.ubac-retention__table',
 						'title'    => __( 'What is stored', 'ubac-retention' ),
 						'text'     => __( 'The six delays WooCommerce would act on, read past the lock.', 'ubac-retention' ),
 					),
 					array(
-						'selector' => '.dahu-retention-lock__state',
+						'selector' => '.ubac-retention__state',
 						'title'    => __( 'The daily cleanup', 'ubac-retention' ),
 						'text'     => __( 'Whether the job that deletes is still scheduled.', 'ubac-retention' ),
 					),

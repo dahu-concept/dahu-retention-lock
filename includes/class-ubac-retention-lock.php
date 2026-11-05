@@ -2,7 +2,7 @@
 /**
  * The lock itself: three layers over WooCommerce's personal-data retention.
  *
- * @package DahuRetentionLock
+ * @package UbacRetention
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * Nothing here deletes or edits any data. It stops WooCommerce from doing so.
  */
-class Dahu_Retention_Lock_Lock {
+class Ubac_Retention_Lock {
 
 	/**
 	 * The hook WooCommerce fires to start the daily cleanup.
@@ -191,7 +191,7 @@ class Dahu_Retention_Lock_Lock {
 	 * @return bool
 	 */
 	public static function is_on() {
-		return Dahu_Retention_Lock_Settings::is_on();
+		return Ubac_Retention_Settings::is_on();
 	}
 
 	/**
@@ -318,7 +318,7 @@ class Dahu_Retention_Lock_Lock {
 		delete_option( $option );
 		self::forget_rows();
 
-		Dahu_Retention_Lock_Log::record( $option, $options[ $option ], (string) $value['number'], isset( $value['unit'] ) ? (string) $value['unit'] : '' );
+		Ubac_Retention_Log::record( $option, $options[ $option ], (string) $value['number'], isset( $value['unit'] ) ? (string) $value['unit'] : '' );
 	}
 
 	/**
@@ -347,11 +347,11 @@ class Dahu_Retention_Lock_Lock {
 		$label  = isset( $labels[ $option ] ) ? $labels[ $option ] : $option;
 		$unit   = isset( $new['unit'] ) ? (string) $new['unit'] : '';
 
-		Dahu_Retention_Lock_Log::record( $option, $label, (string) $new['number'], $unit );
+		Ubac_Retention_Log::record( $option, $label, (string) $new['number'], $unit );
 
 		$message = sprintf(
 			/* translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
-			__( 'Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded.', 'ubac-retention' ),
+			__( 'Ubac Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded.', 'ubac-retention' ),
 			$label,
 			trim( $new['number'] . ' ' . $unit )
 		);
@@ -363,7 +363,7 @@ class Dahu_Retention_Lock_Lock {
 		if ( class_exists( 'WC_Admin_Settings' ) && method_exists( 'WC_Admin_Settings', 'add_error' ) ) {
 			WC_Admin_Settings::add_error( $message );
 		} elseif ( function_exists( 'add_settings_error' ) ) {
-			add_settings_error( 'dahu_retention_lock', 'dahu_retention_lock_refused', $message, 'error' );
+			add_settings_error( 'ubac_retention', 'ubac_retention_refused', $message, 'error' );
 		}
 
 		return $old;
@@ -407,7 +407,7 @@ class Dahu_Retention_Lock_Lock {
 		 *
 		 * @param bool $unschedule Default true.
 		 */
-		if ( ! apply_filters( 'dahu_retention_lock_unschedule', true ) ) {
+		if ( ! apply_filters( 'ubac_retention_unschedule', true ) ) {
 			return;
 		}
 

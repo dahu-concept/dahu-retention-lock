@@ -2,7 +2,7 @@
 # This file is distributed under the MIT licence.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dahu Retention Lock\n"
+"Project-Id-Version: Ubac Retention Lock\n"
 "Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,12 +75,12 @@ msgid "Clear them first"
 msgstr ""
 
 #: ubac-retention.php:95
-msgid "Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgid "Ubac Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
 msgstr ""
 
 #. translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
 #: includes/class-ubac-retention-lock.php:354
-msgid "Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
+msgid "Ubac Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
 msgstr ""
 
 #. translators: %d: how many delays are stored. */

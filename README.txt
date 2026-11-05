@@ -1,5 +1,5 @@
 === Ubac Retention Lock ===
-Contributors: dahuconcept
+Contributors: ubacconcept
 Tags: data retention, order history, personal data, privacy, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1

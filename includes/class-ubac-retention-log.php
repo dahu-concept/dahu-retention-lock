@@ -2,7 +2,7 @@
 /**
  * The record of what the lock refused.
  *
- * @package DahuRetentionLock
+ * @package UbacRetention
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -22,9 +22,9 @@ defined( 'ABSPATH' ) || exit;
  * fifty requests. The job's state belongs on the screen, where it is read
  * live, not in a record of what somebody tried to do.
  */
-class Dahu_Retention_Lock_Log {
+class Ubac_Retention_Log {
 
-	const OPTION = 'dahu_retention_lock_log';
+	const OPTION = 'ubac_retention_log';
 
 	/**
 	 * How many entries are kept.

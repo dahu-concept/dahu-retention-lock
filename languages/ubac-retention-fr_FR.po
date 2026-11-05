@@ -7,7 +7,7 @@ msgstr ""
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "PO-Revision-Date: 2026-10-23 11:19+0000\n"
-"X-Generator: dahu i18n-build\n"
+"X-Generator: ubac i18n-build\n"
 
 #: ubac-retention.php:225
 msgid "A blocked deletion says who tried and why it was refused."
@@ -74,13 +74,13 @@ msgid "Clear them first"
 msgstr "Videz-les d'abord"
 
 #: ubac-retention.php:95
-msgid "Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
-msgstr "Dahu Retention Lock a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
+msgid "Ubac Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgstr "Ubac Retention Lock a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
 
 #. translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
 #: includes/class-ubac-retention-lock.php:354
-msgid "Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
-msgstr "Dahu Retention Lock a refusé un délai de conservation : %1$s (%2$s). Rien n'a été enregistré, et la tentative a été inscrite."
+msgid "Ubac Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
+msgstr "Ubac Retention Lock a refusé un délai de conservation : %1$s (%2$s). Rien n'a été enregistré, et la tentative a été inscrite."
 
 #. translators: %d: how many delays are stored. */
 #: includes/class-ubac-retention-settings.php:259

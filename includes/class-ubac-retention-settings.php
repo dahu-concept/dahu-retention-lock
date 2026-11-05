@@ -2,7 +2,7 @@
 /**
  * The settings screen: the switch, what is really stored, and the record.
  *
- * @package DahuRetentionLock
+ * @package UbacRetention
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -12,10 +12,10 @@ defined( 'ABSPATH' ) || exit;
  * feature is a deliberate act, and a plugin that does it the moment it is
  * activated is a plugin that surprises somebody.
  */
-class Dahu_Retention_Lock_Settings {
+class Ubac_Retention_Settings {
 
-	const OPTION     = 'dahu_retention_lock_on';
-	const GROUP      = 'dahu_retention_lock';
+	const OPTION     = 'ubac_retention_on';
+	const GROUP      = 'ubac_retention';
 	const CAPABILITY = 'manage_woocommerce';
 
 	/**
@@ -43,7 +43,7 @@ class Dahu_Retention_Lock_Settings {
 		add_filter( 'option_page_capability_' . self::GROUP, array( __CLASS__, 'page_capability' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'woocommerce_screen_notice' ) );
-		add_action( 'after_plugin_row_' . plugin_basename( DAHU_RETENTION_LOCK_FILE ), array( __CLASS__, 'plugins_screen_warning' ), 10, 2 );
+		add_action( 'after_plugin_row_' . plugin_basename( UBAC_RETENTION_FILE ), array( __CLASS__, 'plugins_screen_warning' ), 10, 2 );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Dahu_Retention_Lock_Settings {
 	 * @param string $hook Current admin page.
 	 */
 	public static function enqueue( $hook ) {
-		if ( 'woocommerce_page_' . DAHU_RETENTION_LOCK_PAGE !== $hook && ! self::on_woocommerce_privacy_screen() ) {
+		if ( 'woocommerce_page_' . UBAC_RETENTION_PAGE !== $hook && ! self::on_woocommerce_privacy_screen() ) {
 			return;
 		}
 
@@ -67,17 +67,17 @@ class Dahu_Retention_Lock_Settings {
 		// first serves all of them, and a shop with six of these installed
 		// downloads one copy.
 		wp_enqueue_style(
-			'dahu-ui',
-			DAHU_RETENTION_LOCK_URL . 'assets/css/dahu-ui.css',
+			'ubac-ui',
+			UBAC_RETENTION_URL . 'assets/css/ubac-ui.css',
 			array(),
-			DAHU_RETENTION_LOCK_VERSION
+			UBAC_RETENTION_VERSION
 		);
 
 		wp_enqueue_style(
-			'dahu-retention-lock-admin',
-			DAHU_RETENTION_LOCK_URL . 'assets/css/admin.css',
-			array( 'dahu-ui' ),
-			DAHU_RETENTION_LOCK_VERSION
+			'ubac-retention-admin',
+			UBAC_RETENTION_URL . 'assets/css/admin.css',
+			array( 'ubac-ui' ),
+			UBAC_RETENTION_VERSION
 		);
 	}
 
@@ -90,7 +90,7 @@ class Dahu_Retention_Lock_Settings {
 			__( 'Retention lock', 'ubac-retention' ),
 			__( 'Retention lock', 'ubac-retention' ),
 			self::CAPABILITY,
-			DAHU_RETENTION_LOCK_PAGE,
+			UBAC_RETENTION_PAGE,
 			array( __CLASS__, 'render_page' )
 		);
 	}
@@ -138,7 +138,7 @@ class Dahu_Retention_Lock_Settings {
 	 * cannot be done.
 	 */
 	public static function handle_clear_delays() {
-		if ( empty( $_POST['dahu_retention_lock_clear_delays'] ) ) {
+		if ( empty( $_POST['ubac_retention_clear_delays'] ) ) {
 			return;
 		}
 
@@ -146,14 +146,14 @@ class Dahu_Retention_Lock_Settings {
 			wp_die( esc_html__( 'You do not have permission to do that.', 'ubac-retention' ) );
 		}
 
-		check_admin_referer( 'dahu_retention_lock_clear_delays' );
+		check_admin_referer( 'ubac_retention_clear_delays' );
 
-		$cleared = Dahu_Retention_Lock_Lock::clear_stored();
+		$cleared = Ubac_Retention_Lock::clear_stored();
 
 		wp_safe_redirect(
 			add_query_arg(
 				array(
-					'page'    => DAHU_RETENTION_LOCK_PAGE,
+					'page'    => UBAC_RETENTION_PAGE,
 					'cleared' => count( $cleared ),
 				),
 				admin_url( 'admin.php' )
@@ -166,7 +166,7 @@ class Dahu_Retention_Lock_Settings {
 	 * Emptying the record.
 	 */
 	public static function handle_clear() {
-		if ( empty( $_POST['dahu_retention_lock_clear'] ) ) {
+		if ( empty( $_POST['ubac_retention_clear'] ) ) {
 			return;
 		}
 
@@ -174,11 +174,11 @@ class Dahu_Retention_Lock_Settings {
 			wp_die( esc_html__( 'You do not have permission to do that.', 'ubac-retention' ) );
 		}
 
-		check_admin_referer( 'dahu_retention_lock_clear' );
+		check_admin_referer( 'ubac_retention_clear' );
 
-		Dahu_Retention_Lock_Log::clear();
+		Ubac_Retention_Log::clear();
 
-		wp_safe_redirect( add_query_arg( 'page', DAHU_RETENTION_LOCK_PAGE, admin_url( 'admin.php' ) ) );
+		wp_safe_redirect( add_query_arg( 'page', UBAC_RETENTION_PAGE, admin_url( 'admin.php' ) ) );
 		exit;
 	}
 
@@ -209,14 +209,14 @@ class Dahu_Retention_Lock_Settings {
 		}
 
 		printf(
-			'<div class="notice notice-warning dahu-retention-lock__notice"><p><strong>%s</strong></p><p>%s</p><p>%s</p></div>',
+			'<div class="notice notice-warning ubac-retention__notice"><p><strong>%s</strong></p><p>%s</p><p>%s</p></div>',
 			esc_html__( 'Personal data retention: these fields are locked.', 'ubac-retention' ),
 			esc_html__( 'All six delays below are read as empty and the daily cleanup is unhooked. You can type a value: it will not be saved, and the attempt will be recorded.', 'ubac-retention' ),
 			wp_kses_post(
 				sprintf(
 					/* translators: %s: a link to this plugin's settings screen. */
 					__( 'The lock is there because a delay typed here goes on anonymising your history <em>continuously and without warning</em>. To lift it, switch it off in %s — once you have written the retention policy that replaces it.', 'ubac-retention' ),
-					'<a href="' . esc_url( admin_url( 'admin.php?page=' . DAHU_RETENTION_LOCK_PAGE ) ) . '">' . esc_html__( 'WooCommerce → Retention lock', 'ubac-retention' ) . '</a>'
+					'<a href="' . esc_url( admin_url( 'admin.php?page=' . UBAC_RETENTION_PAGE ) ) . '">' . esc_html__( 'WooCommerce → Retention lock', 'ubac-retention' ) . '</a>'
 				)
 			)
 		);
@@ -241,7 +241,7 @@ class Dahu_Retention_Lock_Settings {
 		}
 
 		$pending = array_filter(
-			Dahu_Retention_Lock_Lock::stored(),
+			Ubac_Retention_Lock::stored(),
 			static function ( $row ) {
 				return '' !== $row['stored'];
 			}
@@ -260,7 +260,7 @@ class Dahu_Retention_Lock_Settings {
 					count( $pending )
 				)
 			),
-			esc_url( admin_url( 'admin.php?page=' . DAHU_RETENTION_LOCK_PAGE ) ),
+			esc_url( admin_url( 'admin.php?page=' . UBAC_RETENTION_PAGE ) ),
 			esc_html__( 'Clear them first', 'ubac-retention' )
 		);
 	}
@@ -274,18 +274,18 @@ class Dahu_Retention_Lock_Settings {
 		}
 
 		$on      = self::is_on();
-		$stored  = Dahu_Retention_Lock_Lock::stored();
-		$unknown = Dahu_Retention_Lock_Lock::unknown();
-		$job     = Dahu_Retention_Lock_Lock::job_state();
-		$hooked      = Dahu_Retention_Lock_Lock::cleanup_hooked();
-		$wc_callback = Dahu_Retention_Lock_Lock::woocommerce_callback_present();
-		$log     = Dahu_Retention_Lock_Log::all();
+		$stored  = Ubac_Retention_Lock::stored();
+		$unknown = Ubac_Retention_Lock::unknown();
+		$job     = Ubac_Retention_Lock::job_state();
+		$hooked      = Ubac_Retention_Lock::cleanup_hooked();
+		$wc_callback = Ubac_Retention_Lock::woocommerce_callback_present();
+		$log     = Ubac_Retention_Log::all();
 		$pending = array_filter( $stored, static function ( $row ) { return '' !== $row['stored']; } );
 		?>
-		<div class="wrap dahu-ui">
-			<div class="dahu-ui-head">
-				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Retention lock', 'ubac-retention' ); ?></h1>
-				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Stops anything deleting the records you are required to keep.', 'ubac-retention' ); ?></p>
+		<div class="wrap ubac-ui">
+			<div class="ubac-ui-head">
+				<h1 class="ubac-ui-head__title"><?php esc_html_e( 'Retention lock', 'ubac-retention' ); ?></h1>
+				<p class="ubac-ui-head__sub"><?php esc_html_e( 'Stops anything deleting the records you are required to keep.', 'ubac-retention' ); ?></p>
 			</div>
 			<?php
 			/*
@@ -298,23 +298,23 @@ class Dahu_Retention_Lock_Settings {
 			?>
 			<hr class="wp-header-end">
 
-			<?php settings_errors( 'dahu_retention_lock' ); ?>
+			<?php settings_errors( 'ubac_retention' ); ?>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( self::GROUP ); ?>
 
-				<div class="dahu-ui-card">
+				<div class="ubac-ui-card">
 				<table class="form-table" role="presentation">
 					<tr>
 						<th scope="row"><?php esc_html_e( 'The lock', 'ubac-retention' ); ?></th>
 						<td>
-							<label class="dahu-retention-lock__check">
+							<label class="ubac-retention__check">
 								<input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>" value="1" <?php checked( $on ); ?> />
 								<?php esc_html_e( 'Lock WooCommerce\'s personal data retention', 'ubac-retention' ); ?>
 							</label>
 
 							<?php if ( $pending ) : ?>
-								<p class="description dahu-retention-lock__warning">
+								<p class="description ubac-retention__warning">
 									<?php
 									printf(
 										/* translators: %d: how many delays are still stored. */
@@ -330,17 +330,17 @@ class Dahu_Retention_Lock_Settings {
 				</table>
 				</div>
 
-				<?php submit_button( null, 'dahu-ui-btn dahu-ui-btn--go' ); ?>
+				<?php submit_button( null, 'ubac-ui-btn ubac-ui-btn--go' ); ?>
 			</form>
 
-			<div class="dahu-ui-card">
-			<div class="dahu-ui-card__head"><h2 class="dahu-ui-card__title"><?php esc_html_e( 'What WooCommerce would do', 'ubac-retention' ); ?></h2></div>
+			<div class="ubac-ui-card">
+			<div class="ubac-ui-card__head"><h2 class="ubac-ui-card__title"><?php esc_html_e( 'What WooCommerce would do', 'ubac-retention' ); ?></h2></div>
 
 			<p class="description">
 				<?php esc_html_e( 'Read straight from the database, past the lock. This is what is stored, not what WooCommerce currently sees.', 'ubac-retention' ); ?>
 			</p>
 
-			<table class="widefat striped dahu-retention-lock__table">
+			<table class="widefat striped ubac-retention__table">
 				<thead>
 					<tr>
 						<th scope="col"><?php esc_html_e( 'What it would delete', 'ubac-retention' ); ?></th>
@@ -353,22 +353,22 @@ class Dahu_Retention_Lock_Settings {
 						<tr>
 							<td>
 								<?php echo esc_html( $row['label'] ); ?>
-								<br /><code class="dahu-retention-lock__key"><?php echo esc_html( $option ); ?></code>
+								<br /><code class="ubac-retention__key"><?php echo esc_html( $option ); ?></code>
 							</td>
 							<td>
 								<?php if ( '' === $row['stored'] ) : ?>
-									<span class="dahu-retention-lock__muted"><?php esc_html_e( 'none', 'ubac-retention' ); ?></span>
+									<span class="ubac-retention__muted"><?php esc_html_e( 'none', 'ubac-retention' ); ?></span>
 								<?php else : ?>
-									<strong class="dahu-retention-lock__warning"><?php echo esc_html( $row['stored'] ); ?></strong>
+									<strong class="ubac-retention__warning"><?php echo esc_html( $row['stored'] ); ?></strong>
 								<?php endif; ?>
 							</td>
 							<td>
 								<?php if ( $on ) : ?>
-									<span class="dahu-retention-lock__ok"><?php esc_html_e( 'nothing — locked', 'ubac-retention' ); ?></span>
+									<span class="ubac-retention__ok"><?php esc_html_e( 'nothing — locked', 'ubac-retention' ); ?></span>
 								<?php elseif ( '' === $row['stored'] ) : ?>
-									<span class="dahu-retention-lock__muted"><?php esc_html_e( 'nothing', 'ubac-retention' ); ?></span>
+									<span class="ubac-retention__muted"><?php esc_html_e( 'nothing', 'ubac-retention' ); ?></span>
 								<?php else : ?>
-									<strong class="dahu-retention-lock__warning"><?php echo esc_html( $row['stored'] ); ?></strong>
+									<strong class="ubac-retention__warning"><?php echo esc_html( $row['stored'] ); ?></strong>
 								<?php endif; ?>
 							</td>
 						</tr>
@@ -377,9 +377,9 @@ class Dahu_Retention_Lock_Settings {
 			</table>
 
 			<?php if ( $pending ) : ?>
-				<form method="post" class="dahu-retention-lock__clear">
-					<?php wp_nonce_field( 'dahu_retention_lock_clear_delays' ); ?>
-					<input type="hidden" name="dahu_retention_lock_clear_delays" value="1" />
+				<form method="post" class="ubac-retention__clear">
+					<?php wp_nonce_field( 'ubac_retention_clear_delays' ); ?>
+					<input type="hidden" name="ubac_retention_clear_delays" value="1" />
 					<?php submit_button( __( 'Clear the stored delays', 'ubac-retention' ), 'secondary', 'submit', false ); ?>
 					<span class="description">
 						<?php esc_html_e( 'Removes the delays above from WooCommerce\'s settings. Nothing else is touched, and no order data is changed.', 'ubac-retention' ); ?>
@@ -387,8 +387,8 @@ class Dahu_Retention_Lock_Settings {
 				</form>
 			<?php endif; ?>
 
-			<?php if ( ! Dahu_Retention_Lock_Lock::can_check_woocommerce() ) : ?>
-				<div class="notice notice-warning inline dahu-retention-lock__notice">
+			<?php if ( ! Ubac_Retention_Lock::can_check_woocommerce() ) : ?>
+				<div class="notice notice-warning inline ubac-retention__notice">
 					<p><strong><?php esc_html_e( 'WooCommerce\'s own code could not be read, so this plugin cannot tell you whether it is still locking everything.', 'ubac-retention' ); ?></strong></p>
 					<?php if ( $on ) : ?>
 						<p><?php esc_html_e( 'The six settings above are still locked. What cannot be checked is whether this version of WooCommerce has added a seventh.', 'ubac-retention' ); ?></p>
@@ -399,7 +399,7 @@ class Dahu_Retention_Lock_Settings {
 			<?php endif; ?>
 
 			<?php if ( $unknown ) : ?>
-				<div class="notice notice-warning inline dahu-retention-lock__notice">
+				<div class="notice notice-warning inline ubac-retention__notice">
 					<p>
 						<strong><?php esc_html_e( 'This version of WooCommerce has retention settings this plugin does not know about.', 'ubac-retention' ); ?></strong>
 					</p>
@@ -410,14 +410,14 @@ class Dahu_Retention_Lock_Settings {
 
 			</div>
 
-			<div class="dahu-ui-card">
-			<div class="dahu-ui-card__head"><h2 class="dahu-ui-card__title"><?php esc_html_e( 'The daily cleanup', 'ubac-retention' ); ?></h2></div>
+			<div class="ubac-ui-card">
+			<div class="ubac-ui-card__head"><h2 class="ubac-ui-card__title"><?php esc_html_e( 'The daily cleanup', 'ubac-retention' ); ?></h2></div>
 
-			<ul class="dahu-retention-lock__state">
+			<ul class="ubac-retention__state">
 				<li>
 					<?php esc_html_e( 'Anything still attached to the cleanup hook:', 'ubac-retention' ); ?>
 					<?php if ( $hooked ) : ?>
-						<strong class="dahu-retention-lock__warning"><?php esc_html_e( 'yes', 'ubac-retention' ); ?></strong>
+						<strong class="ubac-retention__warning"><?php esc_html_e( 'yes', 'ubac-retention' ); ?></strong>
 						<?php if ( $wc_callback ) : ?>
 							<?php esc_html_e( '— WooCommerce\'s own, which this plugin knows how to remove.', 'ubac-retention' ); ?>
 						<?php elseif ( $on ) : ?>
@@ -426,28 +426,28 @@ class Dahu_Retention_Lock_Settings {
 							<?php esc_html_e( '— but not WooCommerce\'s own, and the lock is off. That callback is not this plugin\'s to remove.', 'ubac-retention' ); ?>
 						<?php endif; ?>
 					<?php else : ?>
-						<strong class="dahu-retention-lock__ok"><?php esc_html_e( 'no', 'ubac-retention' ); ?></strong>
+						<strong class="ubac-retention__ok"><?php esc_html_e( 'no', 'ubac-retention' ); ?></strong>
 					<?php endif; ?>
 				</li>
 				<?php if ( ! empty( $job['action_scheduler_running'] ) ) : ?>
 					<li>
-						<strong class="dahu-retention-lock__warning"><?php esc_html_e( 'A cleanup run is in progress, or was left that way.', 'ubac-retention' ); ?></strong>
+						<strong class="ubac-retention__warning"><?php esc_html_e( 'A cleanup run is in progress, or was left that way.', 'ubac-retention' ); ?></strong>
 						<?php esc_html_e( 'An in-progress action cannot be cancelled; it will finish or be cleaned up by Action Scheduler. It finds nothing to delete while the lock is on.', 'ubac-retention' ); ?>
 					</li>
 				<?php endif; ?>
 				<li>
 					<?php esc_html_e( 'Scheduled through Action Scheduler:', 'ubac-retention' ); ?>
 					<?php if ( null === $job['action_scheduler'] ) : ?>
-						<span class="dahu-retention-lock__muted"><?php esc_html_e( 'Action Scheduler is not available', 'ubac-retention' ); ?></span>
+						<span class="ubac-retention__muted"><?php esc_html_e( 'Action Scheduler is not available', 'ubac-retention' ); ?></span>
 					<?php else : ?>
-						<strong class="<?php echo $job['action_scheduler'] ? 'dahu-retention-lock__warning' : 'dahu-retention-lock__ok'; ?>">
+						<strong class="<?php echo $job['action_scheduler'] ? 'ubac-retention__warning' : 'ubac-retention__ok'; ?>">
 							<?php echo $job['action_scheduler'] ? esc_html__( 'yes', 'ubac-retention' ) : esc_html__( 'no', 'ubac-retention' ); ?>
 						</strong>
 					<?php endif; ?>
 				</li>
 				<li>
 					<?php esc_html_e( 'Scheduled through WP-Cron:', 'ubac-retention' ); ?>
-					<strong class="<?php echo $job['wp_cron'] ? 'dahu-retention-lock__warning' : 'dahu-retention-lock__ok'; ?>">
+					<strong class="<?php echo $job['wp_cron'] ? 'ubac-retention__warning' : 'ubac-retention__ok'; ?>">
 						<?php echo $job['wp_cron'] ? esc_html__( 'yes', 'ubac-retention' ) : esc_html__( 'no', 'ubac-retention' ); ?>
 					</strong>
 				</li>
@@ -455,17 +455,17 @@ class Dahu_Retention_Lock_Settings {
 
 			</div>
 
-			<div class="dahu-ui-card">
-			<div class="dahu-ui-card__head"><h2 class="dahu-ui-card__title"><?php esc_html_e( 'What the lock refused', 'ubac-retention' ); ?></h2></div>
+			<div class="ubac-ui-card">
+			<div class="ubac-ui-card__head"><h2 class="ubac-ui-card__title"><?php esc_html_e( 'What the lock refused', 'ubac-retention' ); ?></h2></div>
 
 			<?php if ( ! $log ) : ?>
 				<?php if ( $on ) : ?>
-					<p class="dahu-ui-hint"><?php esc_html_e( 'Nothing refused yet; every deletion the lock turns away is listed here.', 'ubac-retention' ); ?></p>
+					<p class="ubac-ui-hint"><?php esc_html_e( 'Nothing refused yet; every deletion the lock turns away is listed here.', 'ubac-retention' ); ?></p>
 				<?php else : ?>
-					<p class="dahu-ui-hint"><?php esc_html_e( 'The lock is off, so nothing is being refused.', 'ubac-retention' ); ?></p>
+					<p class="ubac-ui-hint"><?php esc_html_e( 'The lock is off, so nothing is being refused.', 'ubac-retention' ); ?></p>
 				<?php endif; ?>
 			<?php else : ?>
-				<table class="widefat striped dahu-retention-lock__table">
+				<table class="widefat striped ubac-retention__table">
 					<thead>
 						<tr>
 							<th scope="col"><?php esc_html_e( 'When', 'ubac-retention' ); ?></th>
@@ -487,15 +487,15 @@ class Dahu_Retention_Lock_Settings {
 									);
 									?>
 								</td>
-								<td><?php echo esc_html( Dahu_Retention_Lock_Log::who( isset( $entry['user'] ) ? $entry['user'] : 0 ) ); ?></td>
+								<td><?php echo esc_html( Ubac_Retention_Log::who( isset( $entry['user'] ) ? $entry['user'] : 0 ) ); ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>
 				</table>
 
 				<form method="post">
-					<?php wp_nonce_field( 'dahu_retention_lock_clear' ); ?>
-					<input type="hidden" name="dahu_retention_lock_clear" value="1" />
+					<?php wp_nonce_field( 'ubac_retention_clear' ); ?>
+					<input type="hidden" name="ubac_retention_clear" value="1" />
 					<?php submit_button( __( 'Clear the record', 'ubac-retention' ), 'secondary', 'submit', true ); ?>
 				</form>
 			<?php endif; ?>

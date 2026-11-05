@@ -1,4 +1,4 @@
-# Dahu Retention Lock
+# Ubac Retention Lock
 
 Empêche WooCommerce de supprimer votre historique de commandes à retardement.
 
@@ -109,7 +109,7 @@ Décrocher le rappel est ce qui arrête le travail ; déprogrammer est du
 rangement, et ça écrit en base, donc ça se refuse :
 
 ```php
-add_filter( 'dahu_retention_lock_unschedule', '__return_false' );
+add_filter( 'ubac_retention_unschedule', '__return_false' );
 ```
 
 Le rappel est retiré par son nom, pas avec `remove_all_actions()`. Tout ce qui
