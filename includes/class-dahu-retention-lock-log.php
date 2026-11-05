@@ -95,14 +95,14 @@ class Dahu_Retention_Lock_Log {
 		if ( ! $user_id ) {
 			// A delay can be written by WP-CLI or by code, with nobody
 			// signed in. Saying "the site" is truer than leaving it blank.
-			return __( 'the site', 'dahu-retention-lock' );
+			return __( 'the site', 'ubac-retention' );
 		}
 
 		$user = get_userdata( $user_id );
 
 		return $user ? $user->display_name : sprintf(
 			/* translators: %d: a numeric user id. */
-			__( 'user #%d', 'dahu-retention-lock' ),
+			__( 'user #%d', 'ubac-retention' ),
 			$user_id
 		);
 	}

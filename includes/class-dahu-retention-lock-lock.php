@@ -64,12 +64,12 @@ class Dahu_Retention_Lock_Lock {
 	 */
 	public static function options() {
 		return array(
-			'woocommerce_trash_pending_orders'       => __( 'Bin orders awaiting payment', 'dahu-retention-lock' ),
-			'woocommerce_trash_failed_orders'        => __( 'Bin failed orders', 'dahu-retention-lock' ),
-			'woocommerce_trash_cancelled_orders'     => __( 'Bin cancelled orders', 'dahu-retention-lock' ),
-			'woocommerce_anonymize_refunded_orders'  => __( 'Anonymise refunded orders', 'dahu-retention-lock' ),
-			'woocommerce_anonymize_completed_orders' => __( 'Anonymise completed orders', 'dahu-retention-lock' ),
-			'woocommerce_delete_inactive_accounts'   => __( 'Delete inactive customer accounts', 'dahu-retention-lock' ),
+			'woocommerce_trash_pending_orders'       => __( 'Bin orders awaiting payment', 'ubac-retention' ),
+			'woocommerce_trash_failed_orders'        => __( 'Bin failed orders', 'ubac-retention' ),
+			'woocommerce_trash_cancelled_orders'     => __( 'Bin cancelled orders', 'ubac-retention' ),
+			'woocommerce_anonymize_refunded_orders'  => __( 'Anonymise refunded orders', 'ubac-retention' ),
+			'woocommerce_anonymize_completed_orders' => __( 'Anonymise completed orders', 'ubac-retention' ),
+			'woocommerce_delete_inactive_accounts'   => __( 'Delete inactive customer accounts', 'ubac-retention' ),
 		);
 	}
 
@@ -351,7 +351,7 @@ class Dahu_Retention_Lock_Lock {
 
 		$message = sprintf(
 			/* translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
-			__( 'Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded.', 'dahu-retention-lock' ),
+			__( 'Dahu Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded.', 'ubac-retention' ),
 			$label,
 			trim( $new['number'] . ' ' . $unit )
 		);

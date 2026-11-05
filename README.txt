@@ -1,4 +1,4 @@
-=== Dahu Retention Lock ===
+=== Ubac Retention Lock ===
 Contributors: dahuconcept
 Tags: data retention, order history, personal data, privacy, woocommerce
 Requires at least: 6.0

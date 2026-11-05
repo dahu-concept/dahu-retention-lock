@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Dahu Retention Lock
+ * Plugin Name:       Ubac Retention Lock
  * Description:       Locks WooCommerce's automatic personal-data retention so it cannot quietly anonymise or bin your order history. The six retention delays are read as empty, any attempt to set one is refused and recorded, and the daily cleanup is unhooked. Nothing is ever deleted by this plugin — it stops deletions.
  * Version:           1.2.1
  * Author:            Hugo Vial-Jaime
  * Author URI:        https://dahu-concept.fr
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       dahu-retention-lock
+ * Text Domain:       ubac-retention
  * Domain Path:       /languages
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -90,7 +90,7 @@ add_action(
 
 					printf(
 						'<div class="notice notice-warning"><p>%s</p></div>',
-						esc_html__( 'Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active.', 'dahu-retention-lock' )
+						esc_html__( 'Dahu Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-retention' )
 					);
 				}
 			);
@@ -117,7 +117,7 @@ add_filter(
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . DAHU_RETENTION_LOCK_PAGE ) ),
-				esc_html__( 'Settings', 'dahu-retention-lock' )
+				esc_html__( 'Settings', 'ubac-retention' )
 			)
 		);
 
@@ -162,8 +162,8 @@ add_action(
 		Dahu_Welcome::register(
 			array(
 				'slug'       => 'dahu-retention-lock',
-				'name'       => __( 'Retention lock', 'dahu-retention-lock' ),
-				'tagline'    => __( 'Stops anything deleting the records you are required to keep.', 'dahu-retention-lock' ),
+				'name'       => __( 'Retention lock', 'ubac-retention' ),
+				'tagline'    => __( 'Stops anything deleting the records you are required to keep.', 'ubac-retention' ),
 				'file'       => DAHU_RETENTION_LOCK_FILE,
 				'version'    => DAHU_RETENTION_LOCK_VERSION,
 				'textdomain' => 'dahu-retention-lock',
@@ -182,11 +182,11 @@ add_action(
 				 * no text domain of its own.
 				 */
 				'strings'    => array(
-					'next'   => __( 'Next', 'dahu-retention-lock' ),
-					'done'   => __( 'Done', 'dahu-retention-lock' ),
-					'skip'   => __( 'Skip', 'dahu-retention-lock' ),
-					'of'     => __( 'of', 'dahu-retention-lock' ),
-					'denied' => __( 'You are not allowed to view this page.', 'dahu-retention-lock' ),
+					'next'   => __( 'Next', 'ubac-retention' ),
+					'done'   => __( 'Done', 'ubac-retention' ),
+					'skip'   => __( 'Skip', 'ubac-retention' ),
+					'of'     => __( 'of', 'ubac-retention' ),
+					'denied' => __( 'You are not allowed to view this page.', 'ubac-retention' ),
 				),
 
 				/*
@@ -199,32 +199,32 @@ add_action(
 				'tour'        => array(
 					array(
 						'selector' => 'input[name="dahu_retention_lock_on"]',
-						'title'    => __( 'Switch the lock on', 'dahu-retention-lock' ),
-						'text'     => __( 'It is off until you decide. Nothing is locked before then.', 'dahu-retention-lock' ),
+						'title'    => __( 'Switch the lock on', 'ubac-retention' ),
+						'text'     => __( 'It is off until you decide. Nothing is locked before then.', 'ubac-retention' ),
 					),
 					array(
 						'selector' => '.dahu-retention-lock__table',
-						'title'    => __( 'What is stored', 'dahu-retention-lock' ),
-						'text'     => __( 'The six delays WooCommerce would act on, read past the lock.', 'dahu-retention-lock' ),
+						'title'    => __( 'What is stored', 'ubac-retention' ),
+						'text'     => __( 'The six delays WooCommerce would act on, read past the lock.', 'ubac-retention' ),
 					),
 					array(
 						'selector' => '.dahu-retention-lock__state',
-						'title'    => __( 'The daily cleanup', 'dahu-retention-lock' ),
-						'text'     => __( 'Whether the job that deletes is still scheduled.', 'dahu-retention-lock' ),
+						'title'    => __( 'The daily cleanup', 'ubac-retention' ),
+						'text'     => __( 'Whether the job that deletes is still scheduled.', 'ubac-retention' ),
 					),
 				),
 				'points'     => array(
 				array(
-					'title' => __( 'A rule, not a habit', 'dahu-retention-lock' ),
-					'text'  => __( 'Say how long, and the rule holds for every path.', 'dahu-retention-lock' ),
+					'title' => __( 'A rule, not a habit', 'ubac-retention' ),
+					'text'  => __( 'Say how long, and the rule holds for every path.', 'ubac-retention' ),
 				),
 				array(
-					'title' => __( 'Refusals are visible', 'dahu-retention-lock' ),
-					'text'  => __( 'A blocked deletion says who tried and why it was refused.', 'dahu-retention-lock' ),
+					'title' => __( 'Refusals are visible', 'ubac-retention' ),
+					'text'  => __( 'A blocked deletion says who tried and why it was refused.', 'ubac-retention' ),
 				),
 				array(
-					'title' => __( 'Nothing silent', 'dahu-retention-lock' ),
-					'text'  => __( 'The lock never pretends a deletion happened.', 'dahu-retention-lock' ),
+					'title' => __( 'Nothing silent', 'ubac-retention' ),
+					'text'  => __( 'The lock never pretends a deletion happened.', 'ubac-retention' ),
 				),
 				),
 			)
