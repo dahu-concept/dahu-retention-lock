@@ -4,7 +4,7 @@ Tags: data retention, order history, personal data, privacy, woocommerce
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -108,6 +108,9 @@ date and who made it.
 
 == Changelog ==
 
+= 1.2.2 =
+* Changed: WordPress 6.2 is now the floor. Three extensions of the family need it for prepare()'s %i identifier placeholder, and the family states one floor rather than two because the welcome screen and the shared admin stylesheet are copied byte for byte across it.
+
 = 1.2.1 =
 * With the lock off, the screen no longer states that the six retention settings are locked. It says the lock is off, both in the notice shown when WooCommerce's code cannot be read and on the cleanup hook line.
 * The refusal log says which of the two reasons it is empty for.
@@ -124,6 +127,9 @@ date and who made it.
 * First public release.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+WordPress 6.2 is now the floor, in step with the rest of the family. Nothing else changes.
 
 = 1.0.0 =
 First public release.
