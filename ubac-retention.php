@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ubac Retention Lock
  * Description:       Locks WooCommerce's automatic personal-data retention so it cannot quietly anonymise or bin your order history. The six retention delays are read as empty, any attempt to set one is refused and recorded, and the daily cleanup is unhooked. Nothing is ever deleted by this plugin — it stops deletions.
- * Version:           1.2.3
+ * Version:           1.2.4
  * Author:            Hugo Vial-Jaime
  * Author URI:        https://dahu-concept.fr
  * License:           MIT
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'UBAC_RETENTION_VERSION', '1.2.3' );
+define( 'UBAC_RETENTION_VERSION', '1.2.4' );
 define( 'UBAC_RETENTION_FILE', __FILE__ );
 define( 'UBAC_RETENTION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UBAC_RETENTION_URL', plugin_dir_url( __FILE__ ) );

@@ -1,10 +1,10 @@
 === Ubac Retention Lock ===
 Contributors: dahuconcept
-Tags: data retention, order history, personal data, privacy, woocommerce
+Tags: data retention, order history, personal data, privacy, gdpr
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -108,6 +108,9 @@ date and who made it.
 
 == Changelog ==
 
+= 1.2.4 =
+* Changed: the tag "woocommerce" is replaced by "gdpr". Every plugin of this family is a WooCommerce plugin, so that tag discriminated nothing, and the directory allows only five.
+
 = 1.2.3 =
 * Changed: the compiled French catalogue now travels in the package. It was left out on the grounds that the directory serves language packs, which is true only for a copy installed from the directory and only once translations have been imported: a copy installed by hand showed English with a catalogue that was fully translated.
 * Changed: the French readme moves under docs/, so the directory's checker no longer reports an unexpected markdown file at the plugin root.
@@ -131,6 +134,9 @@ date and who made it.
 * First public release.
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+Documentation only: one search tag replaced by a more useful one.
 
 = 1.2.3 =
 French now works on a copy installed by hand: the compiled catalogue travels in the package. The French readme moves under docs/.
