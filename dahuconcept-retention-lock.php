@@ -152,7 +152,7 @@ require_once UBAC_RETENTION_PATH . 'includes/ubac-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Ubac_Welcome::mark_activated( 'ubac-retention' );
+		Ubac_Welcome::mark_activated( 'dahuconcept-retention-lock' );
 	}
 );
 
@@ -161,12 +161,12 @@ add_action(
 	static function () {
 		Ubac_Welcome::register(
 			array(
-				'slug'       => 'ubac-retention',
+				'slug'       => 'dahuconcept-retention-lock',
 				'name'       => __( 'Retention lock', 'dahuconcept-retention-lock' ),
 				'tagline'    => __( 'Stops anything deleting the records you are required to keep.', 'dahuconcept-retention-lock' ),
 				'file'       => UBAC_RETENTION_FILE,
 				'version'    => UBAC_RETENTION_VERSION,
-				'textdomain' => 'ubac-retention',
+				'textdomain' => 'dahuconcept-retention-lock',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
