@@ -42,6 +42,13 @@ function ubac_retention_uninstall_site() {
 		'ubac_welcome_seen_ubac-retention',
 		'ubac_welcome_pending_ubac-retention',
 		'ubac_welcome_tour_ubac-retention',
+		// Les memes clefs sous l ancien slug : la clef est construite au
+		// runtime a partir du slug, donc elle a change avec lui. Une mise a
+		// jour depuis la version Ubac laisserait sinon trois lignes
+		// orphelines que plus rien ne nomme.
+		'ubac_welcome_seen_dahuconcept-retention-lock',
+		'ubac_welcome_pending_dahuconcept-retention-lock',
+		'ubac_welcome_tour_dahuconcept-retention-lock',
 	);
 
 	foreach ( $options as $option ) {

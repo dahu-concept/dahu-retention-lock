@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ubac-retention\n"
+"Project-Id-Version: dahuconcept-retention-lock\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"PO-Revision-Date: 2026-10-23 11:19+0000\n"
+"PO-Revision-Date: 2026-11-09 07:30+0000\n"
 "X-Generator: ubac i18n-build\n"
 
-#: ubac-retention.php:225
+#: dahuconcept-retention-lock.php:223
 msgid "A blocked deletion says who tried and why it was refused."
 msgstr "Une suppression bloquée dit qui a essayé et pourquoi elle est refusée."
 
@@ -17,7 +17,7 @@ msgstr "Une suppression bloquée dit qui a essayé et pourquoi elle est refusée
 msgid "A cleanup run is in progress, or was left that way."
 msgstr "Un nettoyage est en cours, ou a été laissé dans cet état."
 
-#: ubac-retention.php:220
+#: dahuconcept-retention-lock.php:218
 msgid "A rule, not a habit"
 msgstr "Une règle, pas une habitude"
 
@@ -73,14 +73,14 @@ msgstr "Vider les délais stockés"
 msgid "Clear them first"
 msgstr "Videz-les d'abord"
 
-#: ubac-retention.php:95
-msgid "Ubac Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
-msgstr "Ubac Retention Lock a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
+#: dahuconcept-retention-lock.php:93
+msgid "DahuConcept Retention Lock needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgstr "DahuConcept Retention Lock a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
 
 #. translators: 1: the setting's name, 2: the delay that was refused, e.g. "36 months". */
 #: includes/class-ubac-retention-lock.php:354
-msgid "Ubac Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
-msgstr "Ubac Retention Lock a refusé un délai de conservation : %1$s (%2$s). Rien n'a été enregistré, et la tentative a été inscrite."
+msgid "DahuConcept Retention Lock refused a retention delay: %1$s (%2$s). Nothing was saved, and the attempt was recorded."
+msgstr "DahuConcept Retention Lock a refusé un délai de conservation : %1$s (%2$s). Rien n'a été enregistré, et la tentative a été inscrite."
 
 #. translators: %d: how many delays are stored. */
 #: includes/class-ubac-retention-settings.php:259
@@ -93,11 +93,11 @@ msgstr[1] "Désactiver cette extension remet %d délais de conservation WooComme
 msgid "Delete inactive customer accounts"
 msgstr "Supprimer les comptes clients inactifs"
 
-#: ubac-retention.php:188
+#: dahuconcept-retention-lock.php:186
 msgid "Done"
 msgstr "Terminé"
 
-#: ubac-retention.php:205
+#: dahuconcept-retention-lock.php:203
 msgid "It is off until you decide. Nothing is locked before then."
 msgstr "Il est éteint jusqu'à votre décision. Rien n'est verrouillé avant."
 
@@ -105,7 +105,7 @@ msgstr "Il est éteint jusqu'à votre décision. Rien n'est verrouillé avant."
 msgid "Lock WooCommerce's personal data retention"
 msgstr "Verrouiller la conservation des données personnelles de WooCommerce"
 
-#: ubac-retention.php:187
+#: dahuconcept-retention-lock.php:185
 msgid "Next"
 msgstr "Suivant"
 
@@ -113,7 +113,7 @@ msgstr "Suivant"
 msgid "Nothing refused yet; every deletion the lock turns away is listed here."
 msgstr "Rien de refusé pour l'instant ; chaque suppression écartée par le verrou est listée ici."
 
-#: ubac-retention.php:228
+#: dahuconcept-retention-lock.php:226
 msgid "Nothing silent"
 msgstr "Rien de muet"
 
@@ -125,7 +125,7 @@ msgstr "Conservation des données personnelles : ces champs sont verrouillés."
 msgid "Read straight from the database, past the lock. This is what is stored, not what WooCommerce currently sees."
 msgstr "Lu directement en base, par-delà le verrou. C'est ce qui est stocké, pas ce que WooCommerce voit actuellement."
 
-#: ubac-retention.php:224
+#: dahuconcept-retention-lock.php:222
 msgid "Refusals are visible"
 msgstr "Les refus sont visibles"
 
@@ -138,11 +138,11 @@ msgstr "Refusé : %1$s (%2$s)"
 msgid "Removes the delays above from WooCommerce's settings. Nothing else is touched, and no order data is changed."
 msgstr "Retire les délais ci-dessus des réglages de WooCommerce. Rien d'autre n'est touché, et aucune donnée de commande n'est modifiée."
 
-#: ubac-retention.php:167 includes/class-ubac-retention-settings.php:90 includes/class-ubac-retention-settings.php:91 includes/class-ubac-retention-settings.php:287
+#: dahuconcept-retention-lock.php:165 includes/class-ubac-retention-settings.php:90 includes/class-ubac-retention-settings.php:91 includes/class-ubac-retention-settings.php:287
 msgid "Retention lock"
 msgstr "Verrou de conservation"
 
-#: ubac-retention.php:221
+#: dahuconcept-retention-lock.php:219
 msgid "Say how long, and the rule holds for every path."
 msgstr "Dites combien de temps, et la règle vaut pour tous les chemins."
 
@@ -154,15 +154,15 @@ msgstr "Programmée via Action Scheduler :"
 msgid "Scheduled through WP-Cron:"
 msgstr "Programmée via WP-Cron :"
 
-#: ubac-retention.php:122
+#: dahuconcept-retention-lock.php:120
 msgid "Settings"
 msgstr "Réglages"
 
-#: ubac-retention.php:189
+#: dahuconcept-retention-lock.php:187
 msgid "Skip"
 msgstr "Passer"
 
-#: ubac-retention.php:168 includes/class-ubac-retention-settings.php:288
+#: dahuconcept-retention-lock.php:166 includes/class-ubac-retention-settings.php:288
 msgid "Stops anything deleting the records you are required to keep."
 msgstr "Empêche quoi que ce soit de supprimer les écritures que vous devez conserver."
 
@@ -170,7 +170,7 @@ msgstr "Empêche quoi que ce soit de supprimer les écritures que vous devez con
 msgid "Stored delay"
 msgstr "Délai stocké"
 
-#: ubac-retention.php:204
+#: dahuconcept-retention-lock.php:202
 msgid "Switch the lock on"
 msgstr "Activez le verrou"
 
@@ -180,7 +180,7 @@ msgid_plural "Switching the lock off, or deactivating this plugin, would put %d 
 msgstr[0] "Ouvrir le verrou, ou désactiver cette extension, remettrait %d délai stocké en vigueur dès la requête suivante."
 msgstr[1] "Ouvrir le verrou, ou désactiver cette extension, remettrait %d délais stockés en vigueur dès la requête suivante."
 
-#: ubac-retention.php:214 includes/class-ubac-retention-settings.php:414
+#: dahuconcept-retention-lock.php:212 includes/class-ubac-retention-settings.php:414
 msgid "The daily cleanup"
 msgstr "La tâche quotidienne"
 
@@ -201,11 +201,11 @@ msgstr "Le verrou est éteint, donc rien n'est refusé."
 msgid "The lock is there because a delay typed here goes on anonymising your history <em>continuously and without warning</em>. To lift it, switch it off in %s — once you have written the retention policy that replaces it."
 msgstr "Le verrou existe parce qu'un délai saisi ici anonymise ensuite votre historique <em>en continu et sans avertissement</em>. Pour le lever, ouvrez-le dans %s — une fois écrite la politique de conservation qui le remplace."
 
-#: ubac-retention.php:229
+#: dahuconcept-retention-lock.php:227
 msgid "The lock never pretends a deletion happened."
 msgstr "Le verrou ne fait jamais croire qu’une suppression a eu lieu."
 
-#: ubac-retention.php:210
+#: dahuconcept-retention-lock.php:208
 msgid "The six delays WooCommerce would act on, read past the lock."
 msgstr "Les six délais sur lesquels WooCommerce agirait, lus par-delà le verrou."
 
@@ -237,7 +237,7 @@ msgstr "Ce que WooCommerce lit"
 msgid "What WooCommerce would do"
 msgstr "Ce que WooCommerce ferait"
 
-#: ubac-retention.php:209
+#: dahuconcept-retention-lock.php:207
 msgid "What is stored"
 msgstr "Ce qui est conservé"
 
@@ -253,7 +253,7 @@ msgstr "Ce que le verrou a refusé"
 msgid "When"
 msgstr "Quand"
 
-#: ubac-retention.php:215
+#: dahuconcept-retention-lock.php:213
 msgid "Whether the job that deletes is still scheduled."
 msgstr "Si la tâche qui supprime est toujours planifiée."
 
@@ -265,7 +265,7 @@ msgstr "WooCommerce → Verrou de conservation"
 msgid "WooCommerce's own code could not be read, so this plugin cannot tell you whether it is still locking everything."
 msgstr "Le code de WooCommerce n'a pas pu être lu, donc cette extension ne peut pas vous dire si elle verrouille encore tout."
 
-#: ubac-retention.php:191
+#: dahuconcept-retention-lock.php:189
 msgid "You are not allowed to view this page."
 msgstr "Vous n’avez pas l’autorisation de voir cette page."
 
@@ -293,7 +293,7 @@ msgstr "rien"
 msgid "nothing — locked"
 msgstr "rien — verrouillé"
 
-#: ubac-retention.php:190
+#: dahuconcept-retention-lock.php:188
 msgid "of"
 msgstr "sur"
 

@@ -1,4 +1,4 @@
-# Ubac Retention Lock
+# DahuConcept Retention Lock
 
 Empêche WooCommerce de supprimer votre historique de commandes à retardement.
 

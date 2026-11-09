@@ -1,4 +1,4 @@
-# Ubac Retention Lock
+# DahuConcept Retention Lock
 
 Stops WooCommerce deleting your order history on a timer.
 

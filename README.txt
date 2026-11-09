@@ -1,4 +1,4 @@
-=== Ubac Retention Lock ===
+=== DahuConcept Retention Lock ===
 Contributors: dahuconcept
 Tags: data retention, order history, personal data, privacy, gdpr
 Requires at least: 6.2
