@@ -1,4 +1,4 @@
-=== DahuConcept Retention Lock ===
+=== DahuConcept Retention Lock for WooCommerce ===
 Contributors: dahuconcept
 Tags: data retention, order history, personal data, privacy, gdpr
 Requires at least: 6.2

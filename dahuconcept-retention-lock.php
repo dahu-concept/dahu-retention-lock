@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       DahuConcept Retention Lock
+ * Plugin Name:       DahuConcept Retention Lock for WooCommerce
  * Description:       Locks WooCommerce's automatic personal-data retention so it cannot quietly anonymise or bin your order history. The six retention delays are read as empty, any attempt to set one is refused and recorded, and the daily cleanup is unhooked. Nothing is ever deleted by this plugin — it stops deletions.
  * Version:           1.2.4
  * Author:            Hugo Vial-Jaime
@@ -11,6 +11,7 @@
  * Domain Path:       /languages
  * Requires at least: 6.2
  * Requires PHP:      7.4
+ * Requires Plugins: woocommerce
  * WC requires at least: 7.0
  *
  * @package UbacRetention
