@@ -42,10 +42,10 @@ function ubac_retention_uninstall_site() {
 		'ubac_welcome_seen_ubac-retention',
 		'ubac_welcome_pending_ubac-retention',
 		'ubac_welcome_tour_ubac-retention',
-		// Les memes clefs sous l ancien slug : la clef est construite au
-		// runtime a partir du slug, donc elle a change avec lui. Une mise a
-		// jour depuis la version Ubac laisserait sinon trois lignes
-		// orphelines que plus rien ne nomme.
+		// The same keys under the old slug: the key is built at runtime from
+		// the slug, so it changed when the slug did. An update from the
+		// Ubac-named version would otherwise leave three orphan rows that
+		// nothing names any more.
 		'ubac_welcome_seen_dahuconcept-retention-lock',
 		'ubac_welcome_pending_dahuconcept-retention-lock',
 		'ubac_welcome_tour_dahuconcept-retention-lock',
